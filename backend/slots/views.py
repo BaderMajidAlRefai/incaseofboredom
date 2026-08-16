@@ -11,9 +11,9 @@ class SlotMachineListCreateView(ListCreateAPIView):
 
     def get_permissions(self):
         if self.request.method == "POST":
-            return [IsAuthenticated]
+            return [IsAuthenticated()]
         else:
-            return [AllowAny]
+            return [AllowAny()]
 
     def perform_create(self, serializer):
         serializer.save(creator=self.request.user)
@@ -24,7 +24,7 @@ class ActivityListCreateView(ListCreateAPIView):
 
     def get_permissions(self):
         if self.request.method == "POST":
-            return [IsAuthenticated]
+            return [IsAuthenticated()]
         else:
             return [AllowAny()]
         
